@@ -1,0 +1,12 @@
+# 301 Redirects — Force www.automaze-studio.com.pk as primary domain
+
+# Non-www automaze-studio.com.pk → www
+https://automaze-studio.com.pk/* https://www.automaze-studio.com.pk/:splat 301!
+
+# Old domain muhammadgulfamali.com → www.automaze-studio.com.pk
+https://muhammadgulfamali.com/* https://www.automaze-studio.com.pk/:splat 301!
+https://www.muhammadgulfamali.com/* https://www.automaze-studio.com.pk/:splat 301!
+
+# HTTP → HTTPS (Netlify handles this automatically, but explicit for clarity)
+http://www.automaze-studio.com.pk/* https://www.automaze-studio.com.pk/:splat 301!
+http://automaze-studio.com.pk/* https://www.automaze-studio.com.pk/:splat 301!

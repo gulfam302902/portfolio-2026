@@ -1,0 +1,12 @@
+﻿User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://www.automaze-studio.com.pk/sitemap.xml
+
+# Disallow admin/private
+Disallow: /.gemini/
+Disallow: /node_modules/
+
+# Crawl delay
+Crawl-delay: 1
