@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page Need Checker | Do You Need a Landing Page? | GulfamAI</title>
+    <meta name="description"
+        content="Answer 8 simple questions to find out if your business needs a dedicated landing page to generate more leads and convert more visitors.">
+    <meta name="author" content="Muhammad Gulfam Ali">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+</head>
+
+<body>
+    <nav id="navbar">
+        <div class="nav-inner"><a href="../index.html" class="nav-brand">Gulfam<span>AI</span></a>
+            <div class="nav-links"><a href="../index.html">Home</a><a href="../solutions.html">Solutions</a><a
+                    href="../blog/index.html">Blog</a><a href="index.html">Tools</a><a
+                    href="../guides/index.html">Guides</a><a href="../comparisons/index.html">Comparisons</a><a
+                    href="../about.html">About</a><a href="../contact.html">Contact</a></div><a
+                href="../contact.html#demo" class="btn btn-primary btn-sm nav-cta">Free Demo</a><button
+                class="nav-toggle" id="nav-toggle"
+                aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="mobile-menu"><a href="../index.html">Home</a><a href="../blog/index.html">Blog</a><a
+            href="index.html">Tools</a><a href="../about.html">About</a><a href="../contact.html">Contact</a></div>
+
+    <section class="page-hero">
+        <div class="container"><span class="section-label">Free Tool</span>
+            <h1>Landing Page Need Checker</h1>
+            <p>Not sure if you need a dedicated landing page? Answer 8 questions and find out in 60 seconds.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="ad-placeholder">[ Advertisement ]</div>
+            <div class="tool-box fade-up" style="margin:40px auto;">
+                <h3 style="text-align:center;margin-bottom:8px;">Do You Need a Landing Page?</h3>
+                <p style="text-align:center;font-size:14px;margin-bottom:32px;">Answer honestly. Each answer weighs into
+                    your final recommendation.</p>
+
+                <div class="form-group" style="border-left:3px solid var(--accent);padding-left:16px;"><label
+                        style="font-weight:600;color:var(--text-primary);">1. Are you running any paid ads (Google,
+                        Facebook, etc.)?</label><select id="lp1">
+                        <option value="0">No</option>
+                        <option value="15">Yes</option>
+                    </select></div>
+                <div class="form-group" style="border-left:3px solid var(--accent);padding-left:16px;"><label
+                        style="font-weight:600;color:var(--text-primary);">2. Does your homepage have multiple CTAs /
+                        distractions?</label><select id="lp2">
+                        <option value="0">No, it's focused</option>
+                        <option value="15">Yes, several things compete</option>
+                    </select></div>
+                <div class="form-group" style="border-left:3px solid var(--accent);padding-left:16px;"><label
+                        style="font-weight:600;color:var(--text-primary);">3. Do you offer a specific service,
+                        promotion, or event?</label><select id="lp3">
+                        <option value="0">No, general services only</option>
+                        <option value="10">Yes, specific offer exists</option>
+                    </select></div>
+                <div class="form-group" style="border-left:3px solid var(--accent);padding-left:16px;"><label
+                        style="font-weight:600;color:var(--text-primary);">4. Do you track how many leads each channel
+                        generates?</label><select id="lp4">
+                        <option value="10">No, I don't track</option>
+                        <option value="0">Yes, tracked per channel</option>
+                    </select></div>
+                <div class="form-group" style="border-left:3px solid var(--accent);padding-left:16px;"><label
+                        style="font-weight:600;color:var(--text-primary);">5. Is your homepage conversion rate below
+                        3%?</label><select id="lp5">
+                        <option value="0">No / I don't know</option>
+                        <option value="15">Yes, it's low</option>
+                    </select></div>
+                <div class="form-group" style="border-left:3px solid var(--accent);padding-left:16px;"><label
+                        style="font-weight:600;color:var(--text-primary);">6. Do you have specific audiences (e.g.
+                        dentists vs gyms)?</label><select id="lp6">
+                        <option value="0">No, general audience</option>
+                        <option value="10">Yes, multiple niches</option>
+                    </select></div>
+                <div class="form-group" style="border-left:3px solid var(--accent);padding-left:16px;"><label
+                        style="font-weight:600;color:var(--text-primary);">7. Do you run promotions or limited-time
+                        offers?</label><select id="lp7">
+                        <option value="0">Rarely or never</option>
+                        <option value="10">Yes, regularly</option>
+                    </select></div>
+                <div class="form-group" style="border-left:3px solid var(--accent);padding-left:16px;"><label
+                        style="font-weight:600;color:var(--text-primary);">8. Would a page focused on ONE specific
+                        action improve results?</label><select id="lp8">
+                        <option value="0">No, homepage is fine</option>
+                        <option value="15">Yes, probably</option>
+                    </select></div>
+
+                <button class="btn btn-primary" style="width:100%;justify-content:center;padding:15px;font-size:16px;"
+                    onclick="checkLandingPage()">Check If I Need a Landing Page →</button>
+
+                <div class="result-box" id="lp-result">
+                    <div style="text-align:center;margin-bottom:20px;">
+                        <div class="result-value" id="lp-score" style="font-size:36px;">0</div>
+                        <div class="result-label" id="lp-verdict">-</div>
+                    </div>
+                    <div id="lp-detail" style="margin-top:16px;"></div>
+                    <div style="margin-top:24px;text-align:center;"><a
+                            href="../guides/lead-generating-websites-guide.html" class="btn btn-outline">Read Website
+                            Guide →</a></div>
+                </div>
+            </div>
+            <div class="ad-placeholder">[ Advertisement ]</div>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand"><a href="../index.html" class="nav-brand">Gulfam<span>AI</span></a>
+                    <p>Free tools and educational content on business automation.</p>
+                </div>
+                <div class="footer-col">
+                    <h5>More Tools</h5>
+                    <ul>
+                        <li><a href="missed-call-calculator.html">Missed Call Cost</a></li>
+                        <li><a href="ux-score-calculator.html">UX Score</a></li>
+                        <li><a href="response-delay-tool.html">Response Delay</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Content</h5>
+                    <ul>
+                        <li><a href="../blog/index.html">Blog</a></li>
+                        <li><a href="../guides/index.html">Guides</a></li>
+                        <li><a href="../comparisons/index.html">Comparisons</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Legal</h5>
+                    <ul>
+                        <li><a href="../privacy-policy.html">Privacy</a></li>
+                        <li><a href="../terms.html">Terms</a></li>
+                        <li><a href="../sitemap.html">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Muhammad Gulfam Ali · GulfamAI.</p>
+                <div class="footer-legal"><a href="../privacy-policy.html">Privacy</a><a
+                        href="../terms.html">Terms</a><a href="../sitemap.html">Sitemap</a></div>
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-banner">
+        <p>We use cookies. <a href="../cookie-policy.html">Cookie Policy</a>.</p>
+        <div class="cookie-actions"><button id="cookie-decline" class="btn btn-outline btn-sm">Decline</button><button
+                id="cookie-accept" class="btn btn-primary btn-sm">Accept</button></div>
+    </div>
+    <button id="back-to-top" aria-label="Back to top">↑</button>
+    <script src="../js/main.js"></script>
+    <script>
+        function checkLandingPage() {
+            let score = 0;
+            for (let i = 1; i <= 8; i++) { score += parseInt(document.getElementById('lp' + i).value); }
+            document.getElementById('lp-score').textContent = score + ' pts';
+            let verdict, detail;
+            if (score >= 60) { verdict = '✅ Yes — You Need a Landing Page'; detail = '<div class="highlight-box"><p>Based on your answers, a dedicated landing page would likely <strong>significantly increase your lead conversion rate</strong>. Your current setup has too many distractions or is not optimized for conversion traffic.</p></div>'; }
+            else if (score >= 30) { verdict = '⚠️ Maybe — A Landing Page Would Help'; detail = '<div class="highlight-box"><p>A landing page would improve your results in specific scenarios. Consider creating one for your highest-traffic advertising campaigns first, then expand from there.</p></div>'; }
+            else { verdict = '🟢 Not Yet — Focus on Your Main Site First'; detail = '<div class="highlight-box"><p>Your current website may be sufficient for your needs. Focus on improving the conversion elements on your existing site before adding additional landing pages.</p></div>'; }
+            document.getElementById('lp-verdict').textContent = verdict;
+            document.getElementById('lp-detail').innerHTML = detail;
+            const box = document.getElementById('lp-result');
+            box.classList.add('visible');
+            box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    </script>
+</body>
+
+</html>

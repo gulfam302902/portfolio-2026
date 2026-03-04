@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website UX Score Calculator | Is Your Website Losing Leads? | GulfamAI</title>
+    <meta name="description"
+        content="Free website UX score calculator. Answer 10 questions about your business website and get a conversion score with specific improvement recommendations.">
+    <meta name="author" content="Muhammad Gulfam Ali">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+</head>
+
+<body>
+    <nav id="navbar">
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-brand">Gulfam<span>AI</span></a>
+            <div class="nav-links"><a href="../index.html">Home</a><a href="../solutions.html">Solutions</a><a
+                    href="../industries.html">Industries</a><a href="../blog/index.html">Blog</a><a
+                    href="index.html">Tools</a><a href="../guides/index.html">Guides</a><a
+                    href="../comparisons/index.html">Comparisons</a><a href="../resources.html">Resources</a><a
+                    href="../about.html">About</a><a href="../contact.html">Contact</a></div>
+            <a href="../contact.html#demo" class="btn btn-primary btn-sm nav-cta">Free Demo</a>
+            <button class="nav-toggle" id="nav-toggle"
+                aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="mobile-menu"><a href="../index.html">Home</a><a href="../blog/index.html">Blog</a><a
+            href="index.html">Tools</a><a href="../guides/index.html">Guides</a><a href="../about.html">About</a><a
+            href="../contact.html">Contact</a></div>
+
+    <section class="page-hero">
+        <div class="container">
+            <span class="section-label">Free Tool</span>
+            <h1>Website UX Score Calculator</h1>
+            <p>Answer 10 simple questions about your current website and find out if it's built to generate leads — or
+                just to exist online.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="ad-placeholder">[ Advertisement ]</div>
+            <div class="tool-box fade-up" style="margin:40px auto;">
+                <h3 style="text-align:center; margin-bottom:8px;">Website UX Audit (10 Questions)</h3>
+                <p style="text-align:center; font-size:14px; margin-bottom:32px;">Each question is worth 10 points. Be
+                    honest for the most accurate score.</p>
+
+                <div id="quiz-form">
+                    <div class="form-group" style="border-left:3px solid var(--accent); padding-left:16px;">
+                        <label style="font-weight:600; color:var(--text-primary);">1. Does your phone number appear
+                            clearly in the website header?</label>
+                        <select id="q1">
+                            <option value="0">No / Can't find it easily</option>
+                            <option value="10">Yes, clearly visible</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="border-left:3px solid var(--accent); padding-left:16px;">
+                        <label style="font-weight:600; color:var(--text-primary);">2. Is there a clear CTA button above
+                            the fold?</label>
+                        <select id="q2">
+                            <option value="0">No</option>
+                            <option value="5">Below the fold</option>
+                            <option value="10">Yes, clearly above the fold</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="border-left:3px solid var(--accent); padding-left:16px;">
+                        <label style="font-weight:600; color:var(--text-primary);">3. Does your website load in under 3
+                            seconds on mobile?</label>
+                        <select id="q3">
+                            <option value="0">No / I don't know</option>
+                            <option value="10">Yes, under 3 seconds</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="border-left:3px solid var(--accent); padding-left:16px;">
+                        <label style="font-weight:600; color:var(--text-primary);">4. Are there customer
+                            reviews/testimonials visible on the homepage?</label>
+                        <select id="q4">
+                            <option value="0">No</option>
+                            <option value="5">In footer or hidden page</option>
+                            <option value="10">Yes, prominently displayed</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="border-left:3px solid var(--accent); padding-left:16px;">
+                        <label style="font-weight:600; color:var(--text-primary);">5. Is your website
+                            mobile-responsive?</label>
+                        <select id="q5">
+                            <option value="0">No</option>
+                            <option value="10">Yes, fully responsive</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="border-left:3px solid var(--accent); padding-left:16px;">
+                        <label style="font-weight:600; color:var(--text-primary);">6. Do you have a contact form or
+                            booking form?</label>
+                        <select id="q6">
+                            <option value="0">No</option>
+                            <option value="5">Yes but hard to find</option>
+                            <option value="10">Yes, easy to find and use</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="border-left:3px solid var(--accent); padding-left:16px;">
+                        <label style="font-weight:600; color:var(--text-primary);">7. Does your homepage clearly explain
+                            what you do in one sentence?</label>
+                        <select id="q7">
+                            <option value="0">No / Too vague</option>
+                            <option value="10">Yes, crystal clear</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="border-left:3px solid var(--accent); padding-left:16px;">
+                        <label style="font-weight:600; color:var(--text-primary);">8. Is there a Privacy Policy and
+                            Terms page on your site?</label>
+                        <select id="q8">
+                            <option value="0">No</option>
+                            <option value="10">Yes</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="border-left:3px solid var(--accent); padding-left:16px;">
+                        <label style="font-weight:600; color:var(--text-primary);">9. Does your website have trust
+                            signals (certificates, awards, media logos)?</label>
+                        <select id="q9">
+                            <option value="0">No</option>
+                            <option value="5">Something but minimal</option>
+                            <option value="10">Yes, multiple trust signals</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="border-left:3px solid var(--accent); padding-left:16px;">
+                        <label style="font-weight:600; color:var(--text-primary);">10. Do you track how many leads come
+                            from your website monthly?</label>
+                        <select id="q10">
+                            <option value="0">No</option>
+                            <option value="5">Roughly</option>
+                            <option value="10">Yes, tracked exactly</option>
+                        </select>
+                    </div>
+
+                    <button class="btn btn-primary"
+                        style="width:100%; justify-content:center; padding:15px; font-size:16px;"
+                        onclick="calculateUXScore()">
+                        Get My Website Score →
+                    </button>
+                </div>
+
+                <div class="result-box" id="ux-result">
+                    <div style="text-align:center; margin-bottom:24px;">
+                        <div style="font-size:13px; color:var(--text-muted); margin-bottom:6px;">Your Website UX Score
+                        </div>
+                        <div class="result-value" id="ux-score">0/100</div>
+                        <div class="result-label" id="ux-grade">-</div>
+                    </div>
+                    <div id="ux-recommendations" style="margin-top:20px;"></div>
+                    <div style="margin-top:24px; text-align:center;">
+                        <a href="../guides/lead-generating-websites-guide.html" class="btn btn-outline"
+                            style="margin-right:8px;">Read Website Guide →</a>
+                        <a href="../contact.html#demo" class="btn btn-primary">Get Website Help →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="ad-placeholder">[ Advertisement ]</div>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand"><a href="../index.html" class="nav-brand">Gulfam<span>AI</span></a>
+                    <p>Free business automation tools and educational content.</p>
+                </div>
+                <div class="footer-col">
+                    <h5>More Tools</h5>
+                    <ul>
+                        <li><a href="missed-call-calculator.html">Missed Call Cost</a></li>
+                        <li><a href="ai-vs-human-calculator.html">AI vs Human</a></li>
+                        <li><a href="landing-page-checker.html">Landing Page Checker</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Content</h5>
+                    <ul>
+                        <li><a href="../blog/index.html">Blog</a></li>
+                        <li><a href="../guides/index.html">Guides</a></li>
+                        <li><a href="../comparisons/index.html">Comparisons</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Legal</h5>
+                    <ul>
+                        <li><a href="../about.html">About</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                        <li><a href="../privacy-policy.html">Privacy</a></li>
+                        <li><a href="../sitemap.html">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Muhammad Gulfam Ali · GulfamAI. All rights reserved.</p>
+                <div class="footer-legal"><a href="../privacy-policy.html">Privacy</a><a
+                        href="../terms.html">Terms</a><a href="../disclaimer.html">Disclaimer</a><a
+                        href="../sitemap.html">Sitemap</a></div>
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-banner">
+        <p>We use cookies. <a href="../cookie-policy.html">Cookie Policy</a>.</p>
+        <div class="cookie-actions"><button id="cookie-decline" class="btn btn-outline btn-sm">Decline</button><button
+                id="cookie-accept" class="btn btn-primary btn-sm">Accept</button></div>
+    </div>
+    <button id="back-to-top" aria-label="Back to top">↑</button>
+    <script src="../js/main.js"></script>
+    <script>
+        function calculateUXScore() {
+            let score = 0;
+            for (let i = 1; i <= 10; i++) { score += parseInt(document.getElementById('q' + i).value); }
+            document.getElementById('ux-score').textContent = score + '/100';
+            let grade, recs = '';
+            if (score >= 80) { grade = '🟢 Excellent — Lead Generation Ready'; }
+            else if (score >= 60) { grade = '🟡 Good — Minor Improvements Needed'; recs = '<div class="highlight-box"><p>Your website is performing reasonably but there are conversion gaps. Focus on adding trust signals, optimizing your CTA placement, and improving mobile speed.</p></div>'; }
+            else if (score >= 40) { grade = '🟠 Fair — Significant Improvements Needed'; recs = '<div class="highlight-box"><p>Your website has major conversion gaps. Prioritize: adding phone number to header, creating a clear CTA, adding testimonials, and ensuring mobile responsiveness.</p></div>'; }
+            else { grade = '🔴 Poor — Website Is Not Generating Leads'; recs = '<div class="highlight-box"><p>Your website needs significant work before it can generate leads effectively. Consider a conversion-focused redesign. Read our <a href="../guides/lead-generating-websites-guide.html" style="color:var(--accent-hover);">Lead Generating Website Guide</a> for a complete roadmap.</p></div>'; }
+            document.getElementById('ux-grade').textContent = grade;
+            document.getElementById('ux-recommendations').innerHTML = recs;
+            const box = document.getElementById('ux-result');
+            box.classList.add('visible');
+            box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    </script>
+</body>
+
+</html>
