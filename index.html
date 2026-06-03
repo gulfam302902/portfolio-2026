@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CMS Admin | Automaze Studio</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="../assets/css/design-system.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="css/media-manager.css">
+</head>
+<body class="admin-body">
+
+  <!-- Sidebar -->
+  <aside class="admin-sidebar">
+    <div class="admin-brand">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="margin-right:12px;">
+        <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="var(--color-accent)"/>
+        <path d="M2 17L12 22L22 17M2 12L12 17L22 12" stroke="var(--color-accent-2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Automaze CMS
+    </div>
+    <nav class="admin-nav">
+      <a href="#dashboard" class="nav-link active" data-target="dashboard">Dashboard</a>
+      <a href="#articles" class="nav-link" data-target="articles">All Articles</a>
+      <a href="#new-post" class="nav-link" data-target="new-post">New Article</a>
+      <a href="#media-manager" class="nav-link" data-target="media-manager">Media Manager</a>
+      <a href="#seo-settings" class="nav-link" data-target="seo-settings">SEO Settings</a>
+      <a href="#site-settings" class="nav-link" data-target="site-settings">Site Settings</a>
+    </nav>
+    <div style="margin-top:auto; padding:20px; text-align:center;">
+      <a href="../" target="_blank" class="btn btn-ghost" style="width:100%; font-size:12px;">View Live Site ↗</a>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="admin-main">
+    <!-- Header -->
+    <header class="admin-header">
+      <h1 class="admin-title" id="view-title">Dashboard</h1>
+      <div style="display:flex; gap:16px; align-items:center;">
+        <span id="github-status" class="status-badge error">GitHub: Not Configured</span>
+        <button id="btn-save-post" class="btn btn-primary" style="display:none;">Save & Publish</button>
+      </div>
+    </header>
+
+    <!-- VIEWS -->
+    <div class="admin-view active" id="view-dashboard">
+      <div class="stats-grid">
+        <div class="stat-card"><h3>Total Posts</h3><p id="stat-total">0</p></div>
+        <div class="stat-card"><h3>Published</h3><p id="stat-published">0</p></div>
+        <div class="stat-card"><h3>Drafts</h3><p id="stat-drafts">0</p></div>
+        <div class="stat-card"><h3>Categories</h3><p id="stat-cats">0</p></div>
+      </div>
+      <h2 style="margin-top:32px; margin-bottom:16px; font-size:18px;">Recent Activity</h2>
+      <div class="glass-panel" id="dashboard-recent"></div>
+    </div>
+
+    <div class="admin-view" id="view-articles">
+      <div class="toolbar">
+        <input type="text" id="search-articles" placeholder="Search articles..." class="input-field" style="max-width:300px;">
+        <select id="filter-category" class="input-field" style="width:auto;"><option value="">All Categories</option></select>
+      </div>
+      <div class="table-container">
+        <table class="admin-table">
+          <thead><tr><th>Title</th><th>Category</th><th>Date</th><th>Status</th><th>Actions</th></tr></thead>
+          <tbody id="articles-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="admin-view" id="view-new-post">
+      <div class="editor-layout">
+        <div class="editor-main">
+          <input type="text" id="post-title" class="input-title" placeholder="Article Title...">
+          <div class="toolbar" style="margin-bottom:8px;">
+            <button class="btn btn-ghost btn-sm" onclick="formatDoc('bold')"><b>B</b></button>
+            <button class="btn btn-ghost btn-sm" onclick="formatDoc('italic')"><i>I</i></button>
+            <button class="btn btn-ghost btn-sm" onclick="formatDoc('formatBlock', 'H2')">H2</button>
+            <button class="btn btn-ghost btn-sm" onclick="formatDoc('formatBlock', 'H3')">H3</button>
+            <button class="btn btn-ghost btn-sm" onclick="formatDoc('insertUnorderedList')">• List</button>
+            <button class="btn btn-ghost btn-sm" onclick="insertLink()">Link</button>
+            <button class="btn btn-ghost btn-sm" onclick="toggleHtml()">HTML</button>
+          </div>
+          <div id="post-content" class="rich-editor" contenteditable="true" placeholder="Start writing here..."></div>
+          <textarea id="post-html" class="html-editor" style="display:none;"></textarea>
+        </div>
+        <div class="editor-sidebar">
+          <div class="glass-panel">
+            <h3 class="panel-title">Publishing</h3>
+            <label>Slug (Auto-generated)</label>
+            <input type="text" id="post-slug" class="input-field">
+            <label>Category</label>
+            <input type="text" id="post-category" class="input-field" placeholder="e.g. SEO">
+            <label>Date (Optional)</label>
+            <input type="date" id="post-date" class="input-field">
+            <label class="toggle-switch">
+              <input type="checkbox" id="post-published" checked>
+              <span class="slider"></span> Published
+            </label>
+          </div>
+          <div class="glass-panel" style="margin-top:16px;">
+            <h3 class="panel-title">Featured Image</h3>
+            <div class="image-upload-box" id="thumbnail-upload-box">
+              <input type="file" id="post-thumbnail" accept="image/*" style="display:none;">
+              <span style="font-size:24px;">🖼️</span><br>
+              Click to Upload (Will auto-convert to WebP)
+            </div>
+            <img id="thumbnail-preview" style="width:100%; margin-top:8px; border-radius:8px; display:none;">
+          </div>
+          <div class="glass-panel" style="margin-top:16px;">
+            <h3 class="panel-title">SEO & Metadata</h3>
+            <p style="font-size:12px; color:var(--color-text-muted); margin-bottom:8px;">Meta, Canonical, Breadcrumb, and Schema tags will be generated automatically based on title and content.</p>
+            <label>Custom Excerpt (Optional)</label>
+            <textarea id="post-excerpt" class="input-field" rows="3" placeholder="Auto-generated if left blank..."></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MEDIA MANAGER VIEW -->
+    <div class="admin-view" id="view-media-manager">
+      <div class="media-tabs" id="media-tabs-list">
+        <button class="btn btn-ghost btn-active" data-tab="site-assets">Site Assets</button>
+        <button class="btn btn-ghost" data-tab="homepage">Homepage Images</button>
+        <button class="btn btn-ghost" data-tab="services">Services Images</button>
+        <button class="btn btn-ghost" data-tab="portfolio">Portfolio Images</button>
+        <button class="btn btn-ghost" data-tab="case-studies">Case Studies</button>
+        <button class="btn btn-ghost" data-tab="blog">Blog Images</button>
+        <button class="btn btn-ghost" data-tab="library">Media Library</button>
+      </div>
+
+      <!-- Site Assets Content -->
+      <div class="media-section active" id="sec-site-assets">
+        <div class="assets-grid" id="grid-site-assets"></div>
+      </div>
+
+      <!-- Homepage Images Content -->
+      <div class="media-section" id="sec-homepage">
+        <div class="assets-grid" id="grid-homepage"></div>
+      </div>
+
+      <!-- Services Images Content -->
+      <div class="media-section" id="sec-services">
+        <div class="assets-grid" id="grid-services"></div>
+      </div>
+
+      <!-- Portfolio Images Content -->
+      <div class="media-section" id="sec-portfolio">
+        <div class="assets-grid" id="grid-portfolio"></div>
+      </div>
+
+      <!-- Case Study Images Content -->
+      <div class="media-section" id="sec-case-studies">
+        <div class="assets-grid" id="grid-case-studies"></div>
+      </div>
+
+      <!-- Blog Images Content -->
+      <div class="media-section" id="sec-blog">
+        <div class="assets-grid" id="grid-blog"></div>
+      </div>
+
+      <!-- Media Library Content -->
+      <div class="media-section" id="sec-library">
+        <div class="toolbar" style="display:flex; justify-content:space-between; align-items:center; gap:16px;">
+          <div style="display:flex; gap:12px; flex:1;">
+            <input type="text" id="library-search" placeholder="Search images..." class="input-field" style="margin-bottom:0; max-width:300px;">
+            <select id="library-filter" class="input-field" style="margin-bottom:0; width:auto;">
+              <option value="all">All Subfolders</option>
+              <option value="branding">Branding</option>
+              <option value="homepage">Homepage</option>
+              <option value="services">Services</option>
+              <option value="portfolio">Portfolio</option>
+              <option value="case-studies">Case Studies</option>
+              <option value="blog">Blog</option>
+              <option value="library">Library</option>
+            </select>
+          </div>
+          <input type="file" id="library-upload-input" accept="image/*" style="display:none;">
+          <button class="btn btn-primary" onclick="document.getElementById('library-upload-input').click()">Upload New Image</button>
+        </div>
+        <div class="library-grid" style="margin-top:20px;" id="grid-library"></div>
+      </div>
+    </div>
+
+    <!-- SEO SETTINGS VIEW -->
+    <div class="admin-view" id="view-seo-settings">
+      <div class="glass-panel" style="max-width:800px;">
+        <h2 style="margin-bottom:20px; font-size:20px; font-weight:700;">SEO Settings</h2>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+          <div>
+            <label style="font-size:13px; font-weight:500; color:#A0ABBA; display:block; margin-bottom:6px;">Site Title</label>
+            <input type="text" id="seo-site-title" class="input-field" placeholder="e.g. Automaze Studio">
+          </div>
+          <div>
+            <label style="font-size:13px; font-weight:500; color:#A0ABBA; display:block; margin-bottom:6px;">Site Description</label>
+            <input type="text" id="seo-site-desc" class="input-field" placeholder="e.g. Premium Web Design & Development...">
+          </div>
+          <div>
+            <label style="font-size:13px; font-weight:500; color:#A0ABBA; display:block; margin-bottom:6px;">Default Meta Title</label>
+            <input type="text" id="seo-meta-title" class="input-field" placeholder="Default page title...">
+          </div>
+          <div>
+            <label style="font-size:13px; font-weight:500; color:#A0ABBA; display:block; margin-bottom:6px;">Default Meta Description</label>
+            <input type="text" id="seo-meta-desc" class="input-field" placeholder="Default page description...">
+          </div>
+          <div style="grid-column: span 2;">
+            <label style="font-size:13px; font-weight:500; color:#A0ABBA; display:block; margin-bottom:6px;">Default Open Graph Image URL (Relative to root)</label>
+            <input type="text" id="seo-default-og" class="input-field" placeholder="assets/images/og-image.jpg">
+          </div>
+          <div>
+            <label style="font-size:13px; font-weight:500; color:#A0ABBA; display:block; margin-bottom:6px;">Google Analytics ID</label>
+            <input type="text" id="seo-ga-id" class="input-field" placeholder="G-XXXXXXXXXX">
+          </div>
+          <div>
+            <label style="font-size:13px; font-weight:500; color:#A0ABBA; display:block; margin-bottom:6px;">Google Search Console Verification Code</label>
+            <input type="text" id="seo-gsc-token" class="input-field" placeholder="google-site-verification token...">
+          </div>
+          <div>
+            <label style="font-size:13px; font-weight:500; color:#A0ABBA; display:block; margin-bottom:6px;">Bing Webmaster Verification Code</label>
+            <input type="text" id="seo-bing-token" class="input-field" placeholder="msvalidate.01 token...">
+          </div>
+          <div style="grid-column: span 2;">
+            <label style="font-size:13px; font-weight:500; color:#A0ABBA; display:block; margin-bottom:6px;">Organization Schema Data (JSON)</label>
+            <textarea id="seo-schema-org" class="input-field" rows="6" style="font-family:monospace; font-size:13px; line-height:1.4; height:150px;" placeholder='{ "@context": "https://schema.org", ... }'></textarea>
+          </div>
+        </div>
+        <button id="btn-save-seo" class="btn btn-primary" style="margin-top:16px;">Save SEO Settings</button>
+        <span id="seo-settings-msg" style="margin-left:12px; font-size:14px; color:var(--color-teal);"></span>
+      </div>
+    </div>
+
+    <!-- SITE SETTINGS VIEW -->
+    <div class="admin-view" id="view-site-settings">
+      <div class="glass-panel" style="max-width:600px;">
+        <h2 style="margin-bottom:16px; font-size:20px; font-weight:700;">GitHub Configuration</h2>
+        <p style="margin-bottom:24px; font-size:14px; color:var(--color-text-secondary);">
+          To publish articles, upload assets, and save branding or SEO configurations directly to your repository, configure a GitHub Personal Access Token (PAT) with `repo` access.
+        </p>
+        <label style="font-size:13px; font-weight:500; color:#A0ABBA; display:block; margin-bottom:6px;">GitHub PAT Token</label>
+        <input type="password" id="gh-token" class="input-field" placeholder="ghp_...">
+        <label style="font-size:13px; font-weight:500; color:#A0ABBA; display:block; margin-bottom:6px;">Repository Owner (Username/Org)</label>
+        <input type="text" id="gh-owner" class="input-field" placeholder="e.g. AutomazeStudio">
+        <label style="font-size:13px; font-weight:500; color:#A0ABBA; display:block; margin-bottom:6px;">Repository Name</label>
+        <input type="text" id="gh-repo" class="input-field" placeholder="e.g. website-for-adsens">
+        <label style="font-size:13px; font-weight:500; color:#A0ABBA; display:block; margin-bottom:6px;">Branch</label>
+        <input type="text" id="gh-branch" class="input-field" value="main">
+        <button id="btn-save-settings" class="btn btn-primary" style="margin-top:16px;">Save Settings</button>
+        <p id="settings-msg" style="margin-top:12px; font-size:14px; color:var(--color-accent);"></p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Cropper Modal -->
+  <div class="modal-overlay" id="cropper-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="cropper-modal-title">Crop & Optimize Image</h3>
+        <button class="modal-close" onclick="MediaManager.closeCropper()">&times;</button>
+      </div>
+      <p style="font-size:13px; color:var(--color-text-secondary); margin:0;">Drag to crop. It will automatically resize to recommended dimensions and convert to optimized WebP.</p>
+      <div class="cropper-container">
+        <div class="cropper-image-wrapper" id="cropper-wrapper">
+          <img id="cropper-img" src="" alt="Cropping Preview">
+          <div class="crop-box" id="crop-box">
+            <div class="crop-handle handle-tl"></div>
+            <div class="crop-handle handle-tr"></div>
+            <div class="crop-handle handle-bl"></div>
+            <div class="crop-handle handle-br"></div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <span id="cropper-dims" style="font-size:12px; color:var(--color-text-muted);">Recommended Size: ---</span>
+        <button class="btn btn-ghost" onclick="MediaManager.bypassCropper()">Skip Cropping</button>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" onclick="MediaManager.closeCropper()">Cancel</button>
+        <button class="btn btn-primary" onclick="MediaManager.applyCrop()">Crop & Save</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Image Details Modal -->
+  <div class="modal-overlay" id="details-modal">
+    <div class="modal-content" style="max-width:650px;">
+      <div class="modal-header">
+        <h3>Image Details</h3>
+        <button class="modal-close" onclick="document.getElementById('details-modal').classList.remove('active')">&times;</button>
+      </div>
+      <div class="detail-modal-grid">
+        <div class="detail-preview">
+          <img id="detail-img" src="" alt="Preview">
+        </div>
+        <div class="detail-fields">
+          <div>
+            <div class="detail-label">File Name</div>
+            <div class="detail-value" id="detail-name">---</div>
+          </div>
+          <div>
+            <div class="detail-label">Path</div>
+            <div class="detail-value" id="detail-path">---</div>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+            <div>
+              <div class="detail-label">Dimensions</div>
+              <div class="detail-value" id="detail-dims">---</div>
+            </div>
+            <div>
+              <div class="detail-label">File Size</div>
+              <div class="detail-value" id="detail-size">---</div>
+            </div>
+          </div>
+          <div>
+            <div class="detail-label">Upload Date</div>
+            <div class="detail-value" id="detail-date">---</div>
+          </div>
+          <div>
+            <div class="detail-label">Used In</div>
+            <div class="detail-value" id="detail-usage" style="color:var(--color-teal); font-weight:600;">---</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer" style="justify-content: space-between; align-items: center;">
+        <button class="btn btn-ghost" id="btn-copy-url">Copy Image URL</button>
+        <div style="display:flex; gap:10px;">
+          <button class="btn btn-ghost" onclick="document.getElementById('details-modal').classList.remove('active')">Close</button>
+          <button class="btn btn-primary" id="btn-replace-image">Replace Image</button>
+          <button class="btn btn-error" id="btn-delete-image" style="background:var(--color-error); border-color:var(--color-error); color:#fff;">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../assets/js/blog-engine.js"></script>
+  <script src="js/github-api.js"></script>
+  <script src="js/media-manager.js"></script>
+  <script src="js/admin-app.js"></script>
+</body>
+</html>

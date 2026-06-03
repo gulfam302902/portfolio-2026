@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Automaze Studio | Start Your Web Project</title>
+  <meta name="description" content="Get in touch with Automaze Studio. We build high-converting, SEO-optimized websites. Contact via email, WhatsApp, LinkedIn, or Instagram.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Automaze Studio">
+  <meta name="theme-color" content="#080A0F">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="stylesheet" href="assets/css/design-system.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"></noscript>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Contact — Automaze Studio">
+  <meta property="og:description" content="Start your web development project with Automaze Studio. Fast response, honest conversation.">
+  <meta property="og:url" content="https://automazestudio.com/contact.html">
+  <style>
+    .contact-layout { display:grid;grid-template-columns:1fr 1fr;gap:var(--space-16);align-items:flex-start; }
+    .contact-channels { display:flex;flex-direction:column;gap:var(--space-4); }
+    .faq-list { display:flex;flex-direction:column;gap:var(--space-4); }
+    .faq-item { padding:var(--space-5);background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl); }
+    .faq-q { font-size:var(--text-sm);font-weight:var(--font-semibold);color:var(--color-text-primary);margin-bottom:var(--space-2); }
+    .faq-a { font-size:var(--text-sm);color:var(--color-text-secondary);line-height:var(--leading-relaxed); }
+    @media(max-width:1024px) { .contact-layout { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="page-content">
+
+    <!-- PAGE HERO -->
+    <header class="page-hero" aria-labelledby="contact-page-heading">
+      <div class="page-hero-grid" aria-hidden="true"></div>
+      <div class="container" style="position:relative;z-index:1;">
+        <nav aria-label="Breadcrumb" class="breadcrumb" style="margin-bottom:var(--space-6);">
+          <a href="index.html">Home</a>
+          <span class="breadcrumb-sep" aria-hidden="true">›</span>
+          <span class="breadcrumb-current" aria-current="page">Contact</span>
+        </nav>
+        <div style="max-width:680px;">
+          <p class="section-label">Get in Touch</p>
+          <h1 class="display-md gradient-text" id="contact-page-heading">Let's Talk About<br>What You're Building</h1>
+          <p class="body-lg text-secondary" style="margin-top:var(--space-6);">
+            No pitches. No packages to upsell. Just an honest conversation about your project and whether we're the right fit to help you build it.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <!-- CONTACT SECTION -->
+    <section class="section" aria-label="Contact form and channels">
+      <div class="container">
+        <div class="contact-layout">
+
+          <!-- Left: Form -->
+          <div class="reveal">
+            <p class="section-label">Send a Message</p>
+            <h2 class="heading-md" style="margin-bottom:var(--space-6);">Tell Us About Your Project</h2>
+            <form id="contact-form" action="mailto:hello@automazestudio.com" method="POST" enctype="text/plain" novalidate style="display:flex;flex-direction:column;gap:var(--space-5);">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4);">
+                <div class="form-group">
+                  <label class="form-label" for="contact-name">Your Name</label>
+                  <input class="form-input" type="text" id="contact-name" name="name" placeholder="Sarah Johnson" required autocomplete="name">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="contact-email">Email Address</label>
+                  <input class="form-input" type="email" id="contact-email" name="email" placeholder="sarah@company.com" required autocomplete="email">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="contact-business">Business / Website URL</label>
+                <input class="form-input" type="text" id="contact-business" name="business" placeholder="mycompany.com (if you have one)">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="contact-service">What do you need help with?</label>
+                <select class="form-input form-select" id="contact-service" name="service">
+                  <option value="" disabled selected>Select a service…</option>
+                  <option value="new-website">New Website Build</option>
+                  <option value="redesign">Website Redesign</option>
+                  <option value="seo">SEO Optimization</option>
+                  <option value="conversion">Conversion Rate Optimization</option>
+                  <option value="frontend">Frontend Development</option>
+                  <option value="ux">UX Design</option>
+                  <option value="other">Something Else</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="contact-message">Tell us more about your project</label>
+                <textarea class="form-textarea" id="contact-message" name="message" placeholder="What are you trying to achieve? Who are your customers? What does success look like for you?"></textarea>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="contact-budget">Approximate budget (optional)</label>
+                <select class="form-input form-select" id="contact-budget" name="budget">
+                  <option value="" disabled selected>Select a range…</option>
+                  <option value="under-1k">Under $1,000</option>
+                  <option value="1k-3k">$1,000 – $3,000</option>
+                  <option value="3k-7k">$3,000 – $7,000</option>
+                  <option value="7k-15k">$7,000 – $15,000</option>
+                  <option value="15k+">$15,000+</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary btn-lg" id="contact-submit" style="width:100%;margin-top:var(--space-2);">
+                Send Message
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M8 3L13 8L8 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                  <line x1="4" y1="8" x2="13" y2="8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </button>
+              <p style="font-size:var(--text-xs);color:var(--color-text-muted);text-align:center;">We respond within 24 hours on business days.</p>
+            </form>
+          </div>
+
+          <!-- Right: Channels + FAQ -->
+          <div class="reveal reveal-delay-2" style="display:flex;flex-direction:column;gap:var(--space-10);">
+            <div>
+              <p class="section-label">Direct Contact</p>
+              <h2 class="heading-md" style="margin-bottom:var(--space-6);">Prefer to Reach Out Directly?</h2>
+              <div class="contact-channels">
+                <a href="mailto:hello@automazestudio.com" class="contact-channel" id="contact-email-link" aria-label="Send us an email">
+                  <div class="contact-channel-icon" style="background:var(--color-accent-subtle);border:1px solid rgba(91,111,255,.2);" aria-hidden="true">✉️</div>
+                  <div>
+                    <p class="contact-channel-label">Email</p>
+                    <p class="contact-channel-value">hello@automazestudio.com</p>
+                  </div>
+                </a>
+                <a href="https://wa.me/message/automazestudio" class="contact-channel" id="contact-whatsapp-link" target="_blank" rel="noopener noreferrer" aria-label="Message us on WhatsApp">
+                  <div class="contact-channel-icon" style="background:rgba(37,211,102,.08);border:1px solid rgba(37,211,102,.2);" aria-hidden="true">💬</div>
+                  <div>
+                    <p class="contact-channel-label">WhatsApp</p>
+                    <p class="contact-channel-value">Message us directly</p>
+                  </div>
+                </a>
+                <a href="https://linkedin.com/in/automazestudio" class="contact-channel" id="contact-linkedin-link" target="_blank" rel="noopener noreferrer" aria-label="Find us on LinkedIn">
+                  <div class="contact-channel-icon" style="background:rgba(10,102,194,.1);border:1px solid rgba(10,102,194,.2);" aria-hidden="true">💼</div>
+                  <div>
+                    <p class="contact-channel-label">LinkedIn</p>
+                    <p class="contact-channel-value">linkedin.com/in/automazestudio</p>
+                  </div>
+                </a>
+                <a href="https://instagram.com/automazestudio" class="contact-channel" id="contact-instagram-link" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram">
+                  <div class="contact-channel-icon" style="background:rgba(225,48,108,.08);border:1px solid rgba(225,48,108,.2);" aria-hidden="true">📸</div>
+                  <div>
+                    <p class="contact-channel-label">Instagram</p>
+                    <p class="contact-channel-value">@automazestudio</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <!-- Trust signals -->
+            <div class="card" style="padding:var(--space-6);">
+              <h3 style="font-size:var(--text-base);font-weight:var(--font-semibold);margin-bottom:var(--space-4);">What Happens After You Send</h3>
+              <ul class="checklist">
+                <li>You'll hear back from us within 24 hours — usually sooner.</li>
+                <li>We'll ask a few clarifying questions if needed.</li>
+                <li>We'll let you know honestly if we're a good fit for your project.</li>
+                <li>If we're a fit, we'll schedule a short discovery call to go deeper.</li>
+              </ul>
+            </div>
+
+            <!-- FAQ -->
+            <div>
+              <p class="section-label" style="margin-bottom:var(--space-5);">Common Questions</p>
+              <div class="faq-list">
+                <div class="faq-item">
+                  <p class="faq-q">How long does a website project take?</p>
+                  <p class="faq-a">Most projects land between 3–8 weeks depending on scope. We'll give you a clear timeline in our first conversation.</p>
+                </div>
+                <div class="faq-item">
+                  <p class="faq-q">Do you work with clients internationally?</p>
+                  <p class="faq-a">Yes — we work remotely with businesses worldwide. Most communication happens via email and video calls.</p>
+                </div>
+                <div class="faq-item">
+                  <p class="faq-q">What's the minimum project size?</p>
+                  <p class="faq-a">We don't have a strict minimum, but we're most useful on projects where quality and outcomes genuinely matter to the business.</p>
+                </div>
+                <div class="faq-item">
+                  <p class="faq-q">Do you offer ongoing support after launch?</p>
+                  <p class="faq-a">Yes. We offer optional post-launch support packages for updates, optimisation, and content publishing.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="assets/js/blog-engine.js"></script>
+  <script src="assets/js/seo.js"></script>
+  <script src="assets/js/components.js"></script>
+  <script>
+    if (window.SEO) {
+      SEO.setCanonical('https://automazestudio.com/contact.html');
+      SEO.injectSchema({
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: 'Contact',
+        url: 'https://automazestudio.com/contact.html',
+        description: 'Get in touch with Automaze Studio.',
+        isPartOf: { '@id': 'https://automazestudio.com/#website' }
+      });
+      SEO.injectSchema(SEO.breadcrumbSchema ? SEO.breadcrumbSchema([
+        { name: 'Home', url: '/' },
+        { name: 'Contact' }
+      ]) : null);
+    }
+    // Form handling
+    const form = document.getElementById('contact-form');
+    form?.addEventListener('submit', e => {
+      e.preventDefault();
+      const btn = document.getElementById('contact-submit');
+      btn.textContent = '✓ Message Sent — We\'ll be in touch soon!';
+      btn.style.background = 'var(--color-teal)';
+      btn.disabled = true;
+    });
+  </script>
+</body>
+</html>

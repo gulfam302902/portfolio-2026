@@ -1,0 +1,8 @@
+# Automaze Studio — Cloudflare Pages Rewrites & Redirects
+
+# 1. Dynamic Blog Routing
+# Rewrite folder-based clean URLs to the query-parameter template
+/blog/:slug /blog/post.html?slug=:slug 200
+
+# 2. Category Clean URLs Redirects (from legacy .html files to folders)
+/category/:slug.html /category/:slug/ 301

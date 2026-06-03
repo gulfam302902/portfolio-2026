@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Development Services — Automaze Studio</title>
+  <meta name="description" content="Premium web development services including responsive design, SEO-friendly websites, conversion optimization, frontend development, and UX-focused digital experiences.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Automaze Studio">
+  <meta name="theme-color" content="#080A0F">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="stylesheet" href="assets/css/design-system.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"></noscript>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Web Development Services — Automaze Studio">
+  <meta property="og:description" content="High-converting, SEO-optimized web development services that grow your business.">
+  <meta property="og:url" content="https://automazestudio.com/services.html">
+
+  <style>
+    .service-detail { display:grid;grid-template-columns:1fr 1fr;gap:var(--space-16);align-items:center;padding:var(--space-20) 0;border-bottom:1px solid var(--color-border); }
+    .service-detail:last-of-type { border-bottom:none; }
+    .service-detail.reverse .service-detail-content { order:2; }
+    .service-detail.reverse .service-detail-visual { order:1; }
+    .service-detail-visual { aspect-ratio:4/3;background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-3xl);display:flex;align-items:center;justify-content:center;font-size:5rem;position:relative;overflow:hidden; }
+    .service-detail-visual::before { content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(91,111,255,.08),transparent);pointer-events:none; }
+    .service-tag { display:inline-flex;align-items:center;gap:var(--space-2);font-size:var(--text-xs);font-weight:var(--font-semibold);letter-spacing:var(--tracking-widest);text-transform:uppercase;color:var(--color-accent-2);margin-bottom:var(--space-4); }
+    .service-tag::before { content:'';width:20px;height:1px;background:var(--color-accent); }
+    .service-headline { font-size:clamp(var(--text-2xl),3vw,var(--text-4xl));font-weight:var(--font-bold);letter-spacing:var(--tracking-snug);color:var(--color-text-primary);margin-bottom:var(--space-5);line-height:var(--leading-snug); }
+    .service-body { font-size:var(--text-base);color:var(--color-text-secondary);line-height:var(--leading-relaxed);margin-bottom:var(--space-6); }
+    .why-badge { display:inline-flex;align-items:center;gap:var(--space-2);padding:.4em 1em;background:var(--color-teal-subtle);border:1px solid rgba(0,212,170,.2);border-radius:var(--radius-full);font-size:var(--text-xs);font-weight:var(--font-semibold);color:var(--color-teal);margin-bottom:var(--space-4); }
+    @media(max-width:1024px) {
+      .service-detail { grid-template-columns:1fr; }
+      .service-detail.reverse .service-detail-content,.service-detail.reverse .service-detail-visual { order:unset; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-content">
+
+    <!-- PAGE HERO -->
+    <header class="page-hero" aria-labelledby="services-page-heading">
+      <div class="page-hero-grid" aria-hidden="true"></div>
+      <div class="container" style="position:relative;z-index:1;">
+        <nav aria-label="Breadcrumb" class="breadcrumb" style="margin-bottom:var(--space-6);">
+          <a href="index.html">Home</a>
+          <span class="breadcrumb-sep" aria-hidden="true">›</span>
+          <span class="breadcrumb-current" aria-current="page">Services</span>
+        </nav>
+        <div style="max-width:720px;">
+          <p class="section-label">What We Do</p>
+          <h1 class="display-md gradient-text" id="services-page-heading">Web Development Services<br>Built Around Real Outcomes</h1>
+          <p class="body-lg text-secondary" style="margin-top:var(--space-6);max-width:580px;">
+            We focus on a specific set of services where we know we can deliver results — not a laundry list of everything under the sun. Depth over breadth.
+          </p>
+          <div style="display:flex;gap:var(--space-4);margin-top:var(--space-8);flex-wrap:wrap;">
+            <a href="contact.html" class="btn btn-primary btn-lg" id="services-hero-cta">Start a Project</a>
+            <a href="case-studies/index.html" class="btn btn-ghost btn-lg" id="services-hero-cases">See Our Work</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- SERVICES LIST -->
+    <main class="container">
+
+      <!-- 1. Web Development -->
+      <div class="service-detail reveal" id="web-development">
+        <div class="service-detail-content">
+          <div class="service-tag">Core Service</div>
+          <h2 class="service-headline">Custom Web Development That Performs Under Pressure</h2>
+          <p class="service-body">
+            Your website is your most important salesperson. It's working 24/7, representing your brand to every potential customer who searches for what you do. We build websites that don't just look good — they perform. Fast load times, bulletproof code, and architecture designed to scale with your business.
+          </p>
+          <div class="why-badge">✓ Why it matters to your business</div>
+          <ul class="checklist">
+            <li>A 1-second delay in page load reduces conversions by up to 7% — we eliminate that delay.</li>
+            <li>Clean, semantic code means lower maintenance costs and easier future updates.</li>
+            <li>Built without bloated page-builders that slow you down and lock you in.</li>
+            <li>Tested across all major browsers and devices before we call it done.</li>
+          </ul>
+          <a href="contact.html" class="btn btn-primary" style="margin-top:var(--space-8);" id="web-dev-cta">Talk About Your Project →</a>
+        </div>
+        <div class="service-detail-visual" aria-hidden="true">⚡</div>
+      </div>
+
+      <!-- 2. Responsive Design -->
+      <div class="service-detail reverse reveal" id="responsive-design">
+        <div class="service-detail-visual" aria-hidden="true">📱</div>
+        <div class="service-detail-content">
+          <div class="service-tag">Core Service</div>
+          <h2 class="service-headline">Responsive Design That Never Breaks on Mobile</h2>
+          <p class="service-body">
+            Over 60% of web traffic is mobile. If your site isn't pixel-perfect on a phone, you're actively losing customers. We build mobile-first — meaning mobile is designed first, and scaled up — not the other way around. The result is a site that works flawlessly everywhere.
+          </p>
+          <div class="why-badge">✓ Why it matters to your business</div>
+          <ul class="checklist">
+            <li>Google uses mobile-first indexing — your mobile experience directly affects your search rankings.</li>
+            <li>Mobile-optimized CTAs and touch targets prevent the frustration that sends visitors away.</li>
+            <li>Fluid layouts that adapt beautifully to every screen size, from 375px to 1440px+.</li>
+            <li>Tested on real devices, not just browser simulators.</li>
+          </ul>
+          <a href="contact.html" class="btn btn-primary" style="margin-top:var(--space-8);" id="responsive-cta">Talk About Your Project →</a>
+        </div>
+      </div>
+
+      <!-- 3. SEO -->
+      <div class="service-detail reveal" id="seo-websites">
+        <div class="service-detail-content">
+          <div class="service-tag">Core Service</div>
+          <h2 class="service-headline">SEO-Friendly Websites Built to Rank From Day One</h2>
+          <p class="service-body">
+            Most websites get built, then have SEO bolted on as an afterthought. We build SEO into the architecture itself — because getting found on Google isn't a marketing add-on, it's a fundamental business requirement. Proper schema markup, semantic HTML, optimized page speed, and content structure that search engines can actually read.
+          </p>
+          <div class="why-badge">✓ Why it matters to your business</div>
+          <ul class="checklist">
+            <li>Semantic HTML and proper heading hierarchy help Google understand your content.</li>
+            <li>Schema markup enables rich results — reviews, FAQs, and business info in SERPs.</li>
+            <li>Core Web Vitals optimization is now a direct Google ranking factor.</li>
+            <li>Sitemap, robots.txt, and canonical tag architecture handled properly from the start.</li>
+          </ul>
+          <a href="contact.html" class="btn btn-primary" style="margin-top:var(--space-8);" id="seo-cta">Talk About Your Project →</a>
+        </div>
+        <div class="service-detail-visual" aria-hidden="true">🔍</div>
+      </div>
+
+      <!-- 4. Conversion Optimization -->
+      <div class="service-detail reverse reveal" id="conversion-optimization">
+        <div class="service-detail-visual" aria-hidden="true">🎯</div>
+        <div class="service-detail-content">
+          <div class="service-tag">Core Service</div>
+          <h2 class="service-headline">Conversion-Focused Websites That Turn Visitors Into Customers</h2>
+          <p class="service-body">
+            Getting traffic to your site is one problem. Getting that traffic to take action is a completely different one. We solve both. Every element — from headline structure to button placement to page flow — is designed around one question: does this help someone decide to buy, contact, or sign up?
+          </p>
+          <div class="why-badge">✓ Why it matters to your business</div>
+          <ul class="checklist">
+            <li>Average website conversion rates are 2–3%. We target above that benchmark from the start.</li>
+            <li>Clear value propositions and trust signals reduce purchase hesitation.</li>
+            <li>Optimized CTA placement and copy increase click-through at every stage.</li>
+            <li>Reduced friction in contact forms and checkout flows increases completed actions.</li>
+          </ul>
+          <a href="contact.html" class="btn btn-primary" style="margin-top:var(--space-8);" id="conv-cta">Talk About Your Project →</a>
+        </div>
+      </div>
+
+      <!-- 5. Frontend Development -->
+      <div class="service-detail reveal" id="frontend-development">
+        <div class="service-detail-content">
+          <div class="service-tag">Core Service</div>
+          <h2 class="service-headline">Frontend Development That Feels Premium, Loads Instantly</h2>
+          <p class="service-body">
+            The frontend is what your customers actually experience. We write clean, modern HTML, CSS, and JavaScript that loads fast, animates smoothly, and creates a polished first impression that builds immediate trust. No React bloat where it's not needed. No unnecessary dependencies. Just clean, fast, effective code.
+          </p>
+          <div class="why-badge">✓ Why it matters to your business</div>
+          <ul class="checklist">
+            <li>Lightweight code means faster load times — directly improving both UX and SEO rankings.</li>
+            <li>Premium micro-animations and interactions create a high-end brand perception.</li>
+            <li>Accessible code that works for all users and meets WCAG standards.</li>
+            <li>Maintainable architecture that's easy to update without breaking things.</li>
+          </ul>
+          <a href="contact.html" class="btn btn-primary" style="margin-top:var(--space-8);" id="frontend-cta">Talk About Your Project →</a>
+        </div>
+        <div class="service-detail-visual" aria-hidden="true">🎨</div>
+      </div>
+
+      <!-- 6. UX Design -->
+      <div class="service-detail reverse reveal" id="ux-design">
+        <div class="service-detail-visual" aria-hidden="true">✨</div>
+        <div class="service-detail-content">
+          <div class="service-tag">Core Service</div>
+          <h2 class="service-headline">UX-Focused Design That Removes Friction and Builds Trust</h2>
+          <p class="service-body">
+            Good UX isn't invisible — it's the difference between a visitor who bounces and a customer who buys. We design user journeys with intention: clear information hierarchy, logical page flow, obvious next steps, and enough breathing room that nothing feels cluttered or confusing.
+          </p>
+          <div class="why-badge">✓ Why it matters to your business</div>
+          <ul class="checklist">
+            <li>Clear visual hierarchy guides the eye toward the most important information.</li>
+            <li>Whitespace and typography choices affect how trustworthy your brand feels.</li>
+            <li>Logical user flows reduce cognitive load and decision fatigue.</li>
+            <li>Trust signals and social proof placed at the right points in the journey increase confidence.</li>
+          </ul>
+          <a href="contact.html" class="btn btn-primary" style="margin-top:var(--space-8);" id="ux-cta">Talk About Your Project →</a>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- PROCESS -->
+    <section class="section" style="background:var(--color-bg-2);border-top:1px solid var(--color-border);" aria-labelledby="process-svc-heading">
+      <div class="container">
+        <div style="text-align:center;margin-bottom:var(--space-12);" class="reveal">
+          <p class="section-label" style="justify-content:center;">How We Deliver</p>
+          <h2 class="heading-xl" id="process-svc-heading">From First Call to Launch Ready</h2>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-6);">
+          <div class="card reveal" style="padding:var(--space-7);text-align:center;">
+            <div class="process-step-num" style="margin:0 auto var(--space-4);">01</div>
+            <h3 style="font-size:var(--text-lg);font-weight:600;margin-bottom:var(--space-3);">Discovery Call</h3>
+            <p style="font-size:var(--text-sm);color:var(--color-text-secondary);line-height:1.7;">We learn your business goals, target audience, and what success actually looks like for you.</p>
+          </div>
+          <div class="card reveal reveal-delay-1" style="padding:var(--space-7);text-align:center;">
+            <div class="process-step-num" style="margin:0 auto var(--space-4);">02</div>
+            <h3 style="font-size:var(--text-lg);font-weight:600;margin-bottom:var(--space-3);">Strategy & Planning</h3>
+            <p style="font-size:var(--text-sm);color:var(--color-text-secondary);line-height:1.7;">We map the user journey, plan the information architecture, and define the technical approach.</p>
+          </div>
+          <div class="card reveal reveal-delay-2" style="padding:var(--space-7);text-align:center;">
+            <div class="process-step-num" style="margin:0 auto var(--space-4);">03</div>
+            <h3 style="font-size:var(--text-lg);font-weight:600;margin-bottom:var(--space-3);">Build & Review</h3>
+            <p style="font-size:var(--text-sm);color:var(--color-text-secondary);line-height:1.7;">We build with full transparency. You see progress regularly and give feedback at each stage.</p>
+          </div>
+          <div class="card reveal reveal-delay-3" style="padding:var(--space-7);text-align:center;">
+            <div class="process-step-num" style="margin:0 auto var(--space-4);">04</div>
+            <h3 style="font-size:var(--text-lg);font-weight:600;margin-bottom:var(--space-3);">Launch & Handover</h3>
+            <p style="font-size:var(--text-sm);color:var(--color-text-secondary);line-height:1.7;">We test everything, optimise final performance, and hand over a site you're proud to share.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section-sm" aria-label="Start a project">
+      <div class="container">
+        <div class="card reveal" style="text-align:center;padding:var(--space-16);position:relative;overflow:hidden;">
+          <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(91,111,255,.08),transparent);pointer-events:none;" aria-hidden="true"></div>
+          <p class="section-label" style="justify-content:center;">Ready to Build?</p>
+          <h2 class="heading-xl" style="margin-bottom:var(--space-4);">Tell Us What You Need.<br>We'll Tell You How We Can Help.</h2>
+          <p class="body-md text-secondary" style="max-width:440px;margin:0 auto var(--space-8);">No hard sell. Just an honest conversation about your goals and whether we're the right fit.</p>
+          <div style="display:flex;gap:var(--space-4);justify-content:center;flex-wrap:wrap;">
+            <a href="contact.html" class="btn btn-primary btn-lg" id="services-cta-bottom">Start a Conversation</a>
+            <a href="about.html" class="btn btn-ghost btn-lg" id="services-about-link">Learn About Us First</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="assets/js/blog-engine.js"></script>
+  <script src="assets/js/seo.js"></script>
+  <script src="assets/js/components.js"></script>
+  <script>
+    if (window.SEO) {
+      SEO.setCanonical('https://automazestudio.com/services.html');
+      SEO.injectSchema({
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: 'Services',
+        url: 'https://automazestudio.com/services.html',
+        description: 'Web development services by Automaze Studio.',
+        isPartOf: { '@id': 'https://automazestudio.com/#website' }
+      });
+      SEO.injectSchema(SEO.breadcrumbSchema ? SEO.breadcrumbSchema([
+        { name: 'Home', url: '/' },
+        { name: 'Services' }
+      ]) : null);
+    }
+  </script>
+</body>
+</html>
