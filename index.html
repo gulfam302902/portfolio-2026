@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Automaze Studio — Premium Web Development Agency</title>
+  <meta name="description" content="Automaze Studio builds high-converting, SEO-optimized websites for modern businesses. Premium web development, responsive design, and UX-focused digital experiences.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="author" content="Automaze Studio">
+  <meta name="theme-color" content="#080A0F">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="stylesheet" href="assets/css/design-system.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"></noscript>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Automaze Studio — Premium Web Development Agency">
+  <meta property="og:description" content="High-converting, SEO-optimized, and beautifully engineered websites for modern businesses.">
+  <meta property="og:url" content="https://automazestudio.com">
+  <meta property="og:locale" content="en_US">
+
+  <style>
+    /* HOME-SPECIFIC */
+    .services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: var(--space-6); }
+    .service-card { padding: var(--space-8); }
+    .service-icon { width:48px;height:48px;border-radius:var(--radius-lg);background:var(--color-accent-subtle);border:1px solid rgba(91,111,255,.2);display:flex;align-items:center;justify-content:center;margin-bottom:var(--space-5);font-size:1.4rem; }
+    .service-title { font-size:var(--text-xl);font-weight:var(--font-semibold);margin-bottom:var(--space-3);color:var(--color-text-primary); }
+    .service-desc { font-size:var(--text-sm);color:var(--color-text-secondary);line-height:var(--leading-relaxed); }
+
+    .stats-row { display:flex;align-items:center;justify-content:center;gap:var(--space-12);flex-wrap:wrap;padding:var(--space-10) 0;border-top:1px solid var(--color-border);border-bottom:1px solid var(--color-border); }
+    .stat-item { text-align:center; }
+    .stat-num { font-size:var(--text-4xl);font-weight:var(--font-extrabold);letter-spacing:var(--tracking-tight);line-height:1;display:block; }
+    .stat-lbl { font-size:var(--text-xs);color:var(--color-text-muted);text-transform:uppercase;letter-spacing:var(--tracking-widest);margin-top:var(--space-1); }
+
+    .process-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-6); }
+    .process-card { padding:var(--space-7);text-align:center; }
+    .process-num { font-size:var(--text-4xl);font-weight:var(--font-extrabold);letter-spacing:var(--tracking-tight);background:var(--gradient-accent);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:var(--space-4);display:block; }
+    .process-card h3 { font-size:var(--text-lg);font-weight:var(--font-semibold);margin-bottom:var(--space-3);color:var(--color-text-primary); }
+    .process-card p { font-size:var(--text-sm);color:var(--color-text-secondary);line-height:var(--leading-relaxed); }
+
+    .case-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-6); }
+    .blog-home-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-6); }
+
+    .about-grid { display:grid;grid-template-columns:1fr 1fr;gap:var(--space-16);align-items:center; }
+    .about-visual { aspect-ratio:4/3;background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-3xl);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center; }
+    .about-visual-inner { width:80%;aspect-ratio:1;border-radius:var(--radius-3xl);background:linear-gradient(135deg,var(--color-accent-subtle),var(--color-teal-subtle));border:1px solid rgba(91,111,255,.15);display:flex;align-items:center;justify-content:center;font-size:4rem; }
+
+    /* Floating hero UI elements */
+    .hero-float-card { position:absolute;background:rgba(20,24,32,.9);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius-xl);padding:var(--space-4) var(--space-5);backdrop-filter:blur(16px);white-space:nowrap; }
+    .hero-float-left { left:clamp(5%,5vw,120px);bottom:20%;animation:floatUpDown 4s ease-in-out infinite; }
+    .hero-float-right { right:clamp(5%,5vw,120px);top:30%;animation:floatUpDown 4s ease-in-out infinite reverse; }
+    @keyframes floatUpDown { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+    .hero-float-label { font-size:var(--text-xs);color:var(--color-text-muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px; }
+    .hero-float-val { font-size:var(--text-sm);font-weight:var(--font-semibold);color:var(--color-text-primary); }
+    .hero-float-dot { width:8px;height:8px;border-radius:50%;background:var(--color-teal);display:inline-block;margin-right:6px;animation:pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.6;transform:scale(.8)} }
+
+    @media(max-width:1024px) {
+      .services-grid,.case-grid,.blog-home-grid,.process-grid { grid-template-columns:repeat(2,1fr); }
+      .about-grid { grid-template-columns:1fr; }
+      .hero-float-left,.hero-float-right { display:none; }
+    }
+    @media(max-width:640px) {
+      .services-grid,.case-grid,.blog-home-grid { grid-template-columns:1fr; }
+      .process-grid { grid-template-columns:1fr; }
+      .stats-row { gap:var(--space-8); }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-content">
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="home" aria-label="Hero section">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-grid-lines" aria-hidden="true"></div>
+
+      <!-- Floating trust cards -->
+      <div class="hero-float-card hero-float-left" aria-hidden="true">
+        <div class="hero-float-label">Core Web Vitals</div>
+        <div class="hero-float-val"><span class="hero-float-dot"></span>All Green — 98/100</div>
+      </div>
+      <div class="hero-float-card hero-float-right" aria-hidden="true">
+        <div class="hero-float-label">Conversion Rate</div>
+        <div class="hero-float-val">↑ 2.4× Improvement</div>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <span class="badge badge-accent badge-dot">Premium Web Development Agency</span>
+        </div>
+        <h1 class="display-xl gradient-text" id="hero-headline">
+          Websites That Win<br>Customers — Not Awards
+        </h1>
+        <p class="body-lg text-secondary" style="margin-top:var(--space-6);max-width:600px;margin-inline:auto;">
+          We build fast, SEO-optimized, conversion-focused websites for modern businesses. Every pixel earns its place. Every page has a purpose.
+        </p>
+        <div class="hero-actions">
+          <a href="services.html" class="btn btn-primary btn-lg" id="hero-cta-services">See Our Services</a>
+          <a href="case-studies/index.html" class="btn btn-ghost btn-lg" id="hero-cta-cases">
+            View Case Studies
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M8 3L13 8L8 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="4" y1="8" x2="13" y2="8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </a>
+        </div>
+        <div style="margin-top:var(--space-10);display:flex;align-items:center;justify-content:center;gap:var(--space-6);flex-wrap:wrap;">
+          <span style="font-size:var(--text-xs);color:var(--color-text-muted);text-transform:uppercase;letter-spacing:.1em;">Trusted expertise in</span>
+          <span class="badge badge-neutral">Web Development</span>
+          <span class="badge badge-neutral">Technical SEO</span>
+          <span class="badge badge-neutral">UX Design</span>
+          <span class="badge badge-neutral">Conversion Optimization</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STATS ===== -->
+    <section aria-label="Key statistics" style="padding:0;">
+      <div class="container">
+        <div class="stats-row">
+          <div class="stat-item reveal">
+            <span class="stat-num gradient-text">100%</span>
+            <span class="stat-lbl">Conversion-Focused Builds</span>
+          </div>
+          <div class="stat-item reveal reveal-delay-1">
+            <span class="stat-num gradient-text">28+</span>
+            <span class="stat-lbl">Expert Articles Published</span>
+          </div>
+          <div class="stat-item reveal reveal-delay-2">
+            <span class="stat-num gradient-text">2.4×</span>
+            <span class="stat-lbl">Avg. Conversion Lift</span>
+          </div>
+          <div class="stat-item reveal reveal-delay-3">
+            <span class="stat-num gradient-text">98</span>
+            <span class="stat-lbl">Avg. Pagespeed Score</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section class="section" id="services" aria-labelledby="services-heading">
+      <div class="container">
+        <div style="text-align:center;margin-bottom:var(--space-16);" class="reveal">
+          <p class="section-label" style="justify-content:center;">What We Build</p>
+          <h2 class="heading-xl" id="services-heading">Every Service Engineered<br>for Business Growth</h2>
+          <p class="body-lg text-secondary" style="max-width:520px;margin:var(--space-4) auto 0;">
+            We don't build websites to look nice. We build them to rank, convert, and grow your business.
+          </p>
+        </div>
+        <div class="services-grid" role="list">
+          <article class="card service-card reveal" role="listitem" id="service-web-dev">
+            <div class="service-icon" aria-hidden="true">⚡</div>
+            <h3 class="service-title">High-Converting Websites</h3>
+            <p class="service-desc">Every element is placed with intent. We design around the buyer journey — guiding visitors from curiosity to conversion without friction.</p>
+            <a href="services.html#conversion-optimization" class="btn btn-ghost btn-sm" style="margin-top:var(--space-5);">Learn More →</a>
+          </article>
+          <article class="card service-card reveal reveal-delay-1" role="listitem" id="service-responsive">
+            <div class="service-icon" aria-hidden="true">📱</div>
+            <h3 class="service-title">Responsive Web Development</h3>
+            <p class="service-desc">Mobile-first builds that look and perform beautifully across every device. Your customers browse everywhere — your site should too.</p>
+            <a href="services.html#responsive-design" class="btn btn-ghost btn-sm" style="margin-top:var(--space-5);">Learn More →</a>
+          </article>
+          <article class="card service-card reveal reveal-delay-2" role="listitem" id="service-seo">
+            <div class="service-icon" aria-hidden="true">🔍</div>
+            <h3 class="service-title">SEO-Friendly Architecture</h3>
+            <p class="service-desc">Technical SEO baked in from day one — proper schema markup, semantic HTML, Core Web Vitals optimization, and crawlable content structure.</p>
+            <a href="services.html#seo-websites" class="btn btn-ghost btn-sm" style="margin-top:var(--space-5);">Learn More →</a>
+          </article>
+          <article class="card service-card reveal" role="listitem" id="service-frontend">
+            <div class="service-icon" aria-hidden="true">🎨</div>
+            <h3 class="service-title">Frontend Development</h3>
+            <p class="service-desc">Clean, performant frontend code using modern standards. Fast load times, smooth animations, and a premium feel that reflects your brand.</p>
+            <a href="services.html#frontend-development" class="btn btn-ghost btn-sm" style="margin-top:var(--space-5);">Learn More →</a>
+          </article>
+          <article class="card service-card reveal reveal-delay-1" role="listitem" id="service-ux">
+            <div class="service-icon" aria-hidden="true">✨</div>
+            <h3 class="service-title">UX-Focused Design</h3>
+            <p class="service-desc">User journeys designed with real psychology — removing friction, building trust at every step, and guiding people toward the action you want.</p>
+            <a href="services.html#ux-design" class="btn btn-ghost btn-sm" style="margin-top:var(--space-5);">Learn More →</a>
+          </article>
+          <article class="card service-card reveal reveal-delay-2" role="listitem" id="service-content">
+            <div class="service-icon" aria-hidden="true">📝</div>
+            <h3 class="service-title">Content & SEO Strategy</h3>
+            <p class="service-desc">Editorial content built to rank and educate. We cover web development, SEO, UX, and conversion — positioning your brand as the expert.</p>
+            <a href="blog/" class="btn btn-ghost btn-sm" style="margin-top:var(--space-5);">Read Blog →</a>
+          </article>
+        </div>
+        <div style="text-align:center;margin-top:var(--space-12);">
+          <a href="services.html" class="btn btn-outline btn-lg" id="view-all-services">View All Services</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CASE STUDIES ===== -->
+    <section class="section" id="case-studies-home" aria-labelledby="cases-heading" style="background:var(--color-bg-2);border-top:1px solid var(--color-border);border-bottom:1px solid var(--color-border);">
+      <div class="container">
+        <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:var(--space-12);flex-wrap:wrap;gap:var(--space-4);">
+          <div class="reveal">
+            <p class="section-label">Real Results</p>
+            <h2 class="heading-xl" id="cases-heading">Projects That Moved<br>the Needle</h2>
+          </div>
+          <a href="case-studies/index.html" class="btn btn-ghost" id="view-all-cases">View All Case Studies →</a>
+        </div>
+        <div class="case-grid">
+          <article class="case-card reveal" id="case-restaurant">
+            <div class="case-card-visual" style="background:linear-gradient(135deg,#1a1f30,#0f1420);">🍽️</div>
+            <div class="case-card-body">
+              <p class="case-card-industry">Food & Hospitality</p>
+              <h3 class="case-card-title">Local Restaurant Chain — Online Orders Rebuilt from Scratch</h3>
+              <p class="case-card-desc">A 3-location restaurant had a slow, mobile-broken website losing them orders every night. We rebuilt it with a conversion-first approach and real UX thinking.</p>
+              <div class="case-stats">
+                <div>
+                  <span class="case-stat-val gradient-text">340%</span>
+                  <span class="case-stat-lbl">Online Orders</span>
+                </div>
+                <div>
+                  <span class="case-stat-val gradient-text">98</span>
+                  <span class="case-stat-lbl">Pagespeed Score</span>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="case-card reveal reveal-delay-1" id="case-ecommerce">
+            <div class="case-card-visual" style="background:linear-gradient(135deg,#1a2030,#0f1525);">🛍️</div>
+            <div class="case-card-body">
+              <p class="case-card-industry">E-commerce & Retail</p>
+              <h3 class="case-card-title">Fashion Brand — Turning Traffic Into Revenue</h3>
+              <p class="case-card-desc">This fashion brand had traffic but terrible conversion rates. We overhauled the product pages, checkout flow, and mobile experience to fix that.</p>
+              <div class="case-stats">
+                <div>
+                  <span class="case-stat-val gradient-text">2.4×</span>
+                  <span class="case-stat-lbl">Conversion Rate</span>
+                </div>
+                <div>
+                  <span class="case-stat-val gradient-text">61%</span>
+                  <span class="case-stat-lbl">Bounce Rate Drop</span>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="case-card reveal reveal-delay-2" id="case-saas">
+            <div class="case-card-visual" style="background:linear-gradient(135deg,#151e30,#0a1020);">🚀</div>
+            <div class="case-card-body">
+              <p class="case-card-industry">SaaS & Technology</p>
+              <h3 class="case-card-title">SaaS Startup — Built for Speed, Ranked for Growth</h3>
+              <p class="case-card-desc">A SaaS founder needed a marketing site that loaded instantly, ranked on Google, and converted trial signups. We delivered all three from day one.</p>
+              <div class="case-stats">
+                <div>
+                  <span class="case-stat-val gradient-text">Green</span>
+                  <span class="case-stat-lbl">Core Web Vitals</span>
+                </div>
+                <div>
+                  <span class="case-stat-val gradient-text">+3×</span>
+                  <span class="case-stat-lbl">Trial Signups</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROCESS ===== -->
+    <section class="section" id="process" aria-labelledby="process-heading">
+      <div class="container">
+        <div style="text-align:center;margin-bottom:var(--space-16);" class="reveal">
+          <p class="section-label" style="justify-content:center;">How We Work</p>
+          <h2 class="heading-xl" id="process-heading">A Process Built Around<br>Your Results</h2>
+        </div>
+        <div class="process-grid">
+          <div class="card process-card reveal">
+            <span class="process-num">01</span>
+            <h3>Discovery & Strategy</h3>
+            <p>We start by understanding your business goals, target audience, and competitive landscape — not just your design preferences.</p>
+          </div>
+          <div class="card process-card reveal reveal-delay-1">
+            <span class="process-num">02</span>
+            <h3>UX Planning & Wireframing</h3>
+            <p>Every page is mapped around the user journey before a line of code is written. Structure first. Design second. Development third.</p>
+          </div>
+          <div class="card process-card reveal reveal-delay-2">
+            <span class="process-num">03</span>
+            <h3>Build & Optimize</h3>
+            <p>We build with performance in mind — semantic HTML, clean CSS, optimized assets, and SEO-ready architecture baked into every page.</p>
+          </div>
+          <div class="card process-card reveal reveal-delay-3">
+            <span class="process-num">04</span>
+            <h3>Launch & Grow</h3>
+            <p>Post-launch, we track what matters. Conversion rates, load times, search rankings — and we iterate based on real data, not assumptions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT TEASER ===== -->
+    <section class="section" id="about" aria-labelledby="about-heading" style="background:var(--color-bg-2);border-top:1px solid var(--color-border);">
+      <div class="container">
+        <div class="about-grid">
+          <div class="reveal">
+            <p class="section-label">About Automaze Studio</p>
+            <h2 class="heading-xl" id="about-heading">We Think Like Customers.<br>We Build Like Engineers.</h2>
+            <p class="body-md text-secondary" style="margin-top:var(--space-5);">
+              Automaze Studio is a boutique web development agency focused on building digital products that generate real business results. Not pretty portfolios — measurable growth.
+            </p>
+            <p class="body-md text-secondary" style="margin-top:var(--space-4);">
+              Every project starts with a business goal and ends with a site that delivers against it. SEO, conversion, performance — these aren't add-ons. They're the foundation.
+            </p>
+            <div style="margin-top:var(--space-8);display:flex;gap:var(--space-3);flex-wrap:wrap;">
+              <a href="about.html" class="btn btn-primary" id="about-page-cta">Our Story</a>
+              <a href="contact.html" class="btn btn-ghost" id="about-contact-cta">Work With Us</a>
+            </div>
+          </div>
+          <div class="about-visual reveal reveal-delay-2" aria-hidden="true">
+            <div class="about-visual-inner">🚀</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== LATEST BLOG ===== -->
+    <section class="section" id="latest-posts" aria-labelledby="blog-home-heading">
+      <div class="container">
+        <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:var(--space-10);flex-wrap:wrap;gap:var(--space-4);">
+          <div class="reveal">
+            <p class="section-label">From the Blog</p>
+            <h2 class="heading-xl" id="blog-home-heading">Latest Expert Articles</h2>
+          </div>
+          <a href="blog/" class="btn btn-ghost" id="view-all-posts">View All Articles →</a>
+        </div>
+        <div class="blog-home-grid" id="home-posts-grid" role="list" aria-label="Latest blog posts">
+          <div class="card skeleton" style="min-height:240px;" aria-hidden="true"></div>
+          <div class="card skeleton" style="min-height:240px;" aria-hidden="true"></div>
+          <div class="card skeleton" style="min-height:240px;" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="section-sm" aria-label="Call to action">
+      <div class="container">
+        <div class="card reveal" style="text-align:center;padding:var(--space-16);position:relative;overflow:hidden;">
+          <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(91,111,255,.1) 0%,transparent 70%);pointer-events:none;" aria-hidden="true"></div>
+          <p class="section-label" style="justify-content:center;">Ready to Start?</p>
+          <h2 class="heading-xl" style="margin-bottom:var(--space-4);">Let's Build Something That<br>Actually Grows Your Business</h2>
+          <p class="body-md text-secondary" style="max-width:460px;margin:0 auto var(--space-8);">
+            Whether you need a new website, a conversion overhaul, or an SEO-ready rebuild — we're here, and we get results.
+          </p>
+          <div style="display:flex;gap:var(--space-4);justify-content:center;flex-wrap:wrap;">
+            <a href="contact.html" class="btn btn-primary btn-lg" id="cta-contact">Start a Project</a>
+            <a href="case-studies/index.html" class="btn btn-ghost btn-lg" id="cta-cases-bottom">See Proof First</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- .page-content -->
+
+  <script src="assets/js/blog-engine.js"></script>
+  <script src="assets/js/seo.js"></script>
+  <script src="assets/js/components.js"></script>
+  <script>
+    if (window.SEO) {
+      SEO.applyHome();
+    }
+    BlogEngine.parseBlogFile('content/blog/index.json').then(posts => {
+      const grid = document.getElementById('home-posts-grid');
+      if (!grid || !posts.length) return;
+      grid.innerHTML = posts.slice(0, 3).map(post => `
+        <article class="card post-card reveal" role="listitem" id="home-post-${post.id}">
+          <div class="post-card-meta">
+            <a href="category/${post.categorySlug}/" class="cat-tag">${post.category}</a>
+            <span class="post-card-read-time">${post.readTime}</span>
+          </div>
+          <a href="blog/${post.slug}/" class="post-card-title heading-sm" aria-label="Read: ${post.title}">${post.title}</a>
+          <p class="post-card-excerpt">${post.excerpt}</p>
+          <div class="post-card-footer">
+            <time datetime="${post.date}" class="post-card-read-time">${BlogEngine.formatDate(post.date)}</time>
+            <a href="blog/${post.slug}/" class="post-card-arrow" aria-hidden="true">→</a>
+          </div>
+        </article>
+      `).join('');
+    });
+  </script>
+</body>
+</html>
